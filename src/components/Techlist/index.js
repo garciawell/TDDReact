@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // import { Container } from './styles';
 
 export default function Techlist() {
   const [techs, setTechs] = useState([]);
   const [newTech, setNewTech] = useState('');
+
+  useEffect(() => {
+    const techsStorage = localStorage.getItem('techs');
+
+    if (techsStorage) {
+      setTechs(JSON.parse(techsStorage));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('techs', JSON.stringify(techs));
+  }, [techs]);
 
   function handleAddTech() {
     setTechs([...techs, 'Node.js']);
