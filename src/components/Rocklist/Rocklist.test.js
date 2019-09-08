@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { useSelector, useDispatch } from 'react-redux';
 import Rocklist from './index';
+import * as ActionsTech from '~/store/modules/rocks/actions';
 
 jest.mock('react-redux');
 
@@ -27,9 +28,6 @@ describe('Roclist selector', () => {
     fireEvent.change(getByLabelText('Rock'), { target: { value: 'Node.js' } });
     fireEvent.submit(getByTestId('rock-form'));
 
-    expect(dispatch).toHaveBeenCalledWith({
-      type: 'ADD_ROCK',
-      payload: { rock: 'Node.js' },
-    });
+    expect(dispatch).toHaveBeenCalledWith(ActionsTech.addRock('Node.js'));
   });
 });

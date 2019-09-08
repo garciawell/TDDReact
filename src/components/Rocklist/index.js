@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import * as ActionsTech from '~/store/modules/rocks/actions';
 
 export default function Rocklist() {
   const [newRock, setNewRock] = useState('');
@@ -7,7 +8,7 @@ export default function Rocklist() {
   const rocks = useSelector(state => state.rocks);
 
   function handleAddRock() {
-    dispatch({ type: 'ADD_ROCK', payload: { rock: newRock } });
+    dispatch(ActionsTech.addRock(newRock));
     setNewRock('');
   }
 
