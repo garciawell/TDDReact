@@ -19,7 +19,7 @@ export default function Techlist() {
   }, [techs]);
 
   function handleAddTech() {
-    setTechs([...techs, 'Node.js']);
+    setTechs([...techs, newTech]);
     setNewTech('');
   }
 
