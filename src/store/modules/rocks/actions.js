@@ -4,3 +4,16 @@ export function addRock(rock) {
     payload: { rock },
   };
 }
+
+export function getRocksSuccess(data) {
+  return {
+    type: 'GET_ROCKS_SUCCESS',
+    payload: { data },
+  };
+}
+
+export function getRocksFailure() {
+  return {
+    type: 'GET_ROCKS_FAILURE',
+  };
+}
